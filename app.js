@@ -6,7 +6,7 @@ const blogRoutes = require("./routes/blogRoutes");
 require("dotenv").config();
 const { auth, requiresAuth } = require("express-openid-connect");
 
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 8080;
 
 // Express app
 const app = express();
