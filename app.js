@@ -6,6 +6,8 @@ const blogRoutes = require("./routes/blogRoutes");
 require("dotenv").config();
 const { auth, requiresAuth } = require("express-openid-connect");
 
+let port = process.env.PORT || 3000;
+
 // Express app
 const app = express();
 // Connect to mongodb
@@ -13,7 +15,7 @@ const uri = process.env.dbURI;
 
 mongoose
   .connect(uri)
-  .then((result) => app.listen(3000))
+  .then((result) => app.listen(port))
   .catch((err) => console.log(err));
 
 app.use(
