@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "start": "node app.js",
     "build-css": "tailwindcss build src/styles.css -o public/styles.css",
     "dev": "nodemon app.js"
   },
