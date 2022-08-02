@@ -14,6 +14,10 @@ const blog_index = (req, res) => {
     });
 };
 
+// const blog_secret = (req, res) => {
+//   res.render("secret");
+// };
+
 const blog_details = (req, res) => {
   const id = req.params.id;
 
@@ -27,7 +31,7 @@ const blog_details = (req, res) => {
 };
 
 const blog_create_get = (req, res) => {
-  requiresAuth();
+  // requiresAuth();
   res.render("create", { title: "Create a new blog" });
 };
 
@@ -63,4 +67,5 @@ module.exports = {
   blog_create_get,
   blog_create_post,
   blog_delete,
+  // blog_secret,
 };
