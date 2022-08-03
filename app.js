@@ -38,7 +38,6 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
-app.use(auth(config));
 
 // app.get("/", (req, res) => {
 //   res.send(req.oidc.isAuthenticated() ? "Logged in" : "Logged out");
@@ -52,7 +51,7 @@ app.get("/", (req, res) => {
 app.get("/about", (req, res) => {
   res.render("about", { title: "About" });
 });
-app.get("/secret", (req, res) => {
+app.get("/secret", auth(config), (req, res) => {
   res.render("secret", {
     title: "Secret",
     isAuthenticated: req.oidc.isAuthenticated(),
