@@ -51,7 +51,7 @@ app.get("/", (req, res) => {
 app.get("/about", (req, res) => {
   res.render("about", { title: "About" });
 });
-app.get("/secret", requiresAuth(), (req, res) => {
+app.get("/secret", (req, res) => {
   res.render("secret", {
     title: "Secret",
     isAuthenticated: req.oidc.isAuthenticated(),
