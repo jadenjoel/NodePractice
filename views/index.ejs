@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include("./partials/head.ejs") %>
+<%- include("./partials/head.ejs") %>
 
 
 <body class="font-body text-center">
@@ -13,20 +13,19 @@
 
         <% if (blogs.length > 0){ %>
         <% blogs.forEach(blog => { %>
-            <div class="shadow-sm text-2xl">
-         <a href="/blogs/<%= blog._id %>">  
-        <h3 class="hover:text-teal-400 font-bold"><%= blog.title %></h3>
-        <p class="pb-4"><%= blog.snippet %></p>
-        </a>
+        <div class="shadow-sm text-2xl">
+            <a href="/blogs/<%= blog._id %>">
+                <h3 class="hover:text-teal-400 font-bold"><%= blog.title %></h3>
+                <p class="pb-4"><%= blog.snippet %></p>
+            </a>
         </div>
         <% } ) %>
         <% } else {%>
         <p>No new blogs, today</p>
         <% } %>
-
-        <pre><%= JSON.stringify(user,null,2)%></pre>
-
     </div>
+    
+    <pre><%= JSON.stringify(user,null,2)%></pre>
 
     <%- include("./partials/footer.ejs") %>
 
