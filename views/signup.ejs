@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include("./partials/head.ejs") %>
+
+<body class="font-bold font-body">
+   
+    <%- include("./partials/nav.ejs") %>
+
+    <div class="flex justify-center md:justify-start justify-content-left md:mt-8">
+        <form action="/user/signup" method="POST">
+
+            <div class="grid md:grid-flow-col">
+            <label for="email" class="text-3xl uppercase px-1">Email:</label>
+            <input type="email" name="email" required class="border-blue-700 text-black text-xl border-2 md:justify-start col-span-12 rounded-xl box-border py-4  md:w-auto">
+           
+                <label for="password" class="text-3xl uppercase px-1">password:</label>
+                <input type="password" name="password" required class="border-blue-700 text-black text-xl border-2 md:justify-start col-span-12 rounded-xl box-border py-4 md:w-auto">
+            </div>
+           
+            <button id="button" class="flex mx-auto mt-8 md:mt-8 rounded-full bg-black px-8 py-2 text-xl text-teal-500">Sign Up</button>
+           
+            </div>
+        </form>
+    </div>
+    
+    <%- include("./partials/footer.ejs") %>
+
+</body>
+
+</html>

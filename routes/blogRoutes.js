@@ -1,11 +1,18 @@
 const express = require("express");
-// const Blog = require("../models/blog");
+
 const blogController = require("../controllers/blogController");
 const { auth, requiresAuth } = require("express-openid-connect");
 require("dotenv").config();
 const app = express();
 
+const { requireAuth, checkUser } = require("../middleware/requireAuth");
+
 const router = express.Router();
+
+//req auth for all routes
+
+router.use(requireAuth);
+
 app.use(
   auth({
     authRequired: false,
@@ -19,11 +26,11 @@ app.use(
 );
 
 // blog routes
+app.get("*", checkUser);
 router.get("/", blogController.blog_index);
-router.post("/", requiresAuth(), blogController.blog_create_post);
+router.post("/", checkUser, blogController.blog_create_post);
 router.get("/create", blogController.blog_create_get);
 router.get("/:id", blogController.blog_details);
-// router.get("/secret", blogController.blog_secret);
 router.delete("/:id", blogController.blog_delete);
 
 module.exports = router;

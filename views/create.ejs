@@ -1,33 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+  <%- include("./partials/head.ejs") %>
 
-    <%- include("./partials/head.ejs") %>
-
-<body class="font-bold font-body">
-   
+  <body class="font-bold font-body">
     <%- include("./partials/nav.ejs") %>
 
-    <div class="flex justify-center md:justify-start justify-content-left md:mt-8">
-        <form action="/blogs" method="POST">
+    <div
+      class="flex justify-center md:justify-start justify-content-left md:mt-8"
+    >
+      <form action="/blogs" method="POST">
+        <div class="grid md:grid-flow-col">
+          <label for="title" class="text-3xl uppercase px-1">Title:</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            required
+            class="border-blue-700 text-black text-xl border-2 md:justify-start col-span-12 rounded-xl box-border py-4 md:w-auto"
+          />
 
-            <div class="grid md:grid-flow-col">
-            <label for="title" class="text-3xl uppercase px-1">Title:</label>
-            <input type="text" id="title" name="title" required class="border-blue-700 text-black text-xl border-2 md:justify-start col-span-12 rounded-xl box-border py-4  md:w-auto">
-           
-                <label for="snippet" class="text-3xl uppercase px-1">Snippet:</label>
-                <input type="text" id="snippet" name="snippet" required class="border-blue-700 text-black text-xl border-2 md:justify-start col-span-12 rounded-xl box-border py-4 md:w-auto">
-            </div>
-            <div class="md:mt-12">
-            <label for="body" class="flex uppercase text-3xl px-1">Text body:</label>
-            <textarea id="body" name="body" required class="border-blue-700 border-2 text-black text-xl rounded-xl box-border md:w-screen py-16 placeholder:italic placeholder:text-slate-400" placeholder="Write your masterpiece here..."></textarea>
-            
-            <button id="button" class="flex mx-auto md:mt-8 rounded-full bg-black px-8 py-2 text-xl text-teal-500">SHARE</button>
-            </div>
-        </form>
+          <label for="snippet" class="text-3xl uppercase px-1">Snippet:</label>
+          <input
+            type="text"
+            id="snippet"
+            name="snippet"
+            required
+            class="border-blue-700 text-black text-xl border-2 md:justify-start col-span-12 rounded-xl box-border py-4 md:w-auto"
+          />
+        </div>
+        <div class="md:mt-12">
+          <label for="body" class="flex uppercase text-3xl px-1"
+            >Text body:</label
+          >
+          <textarea
+            id="body"
+            name="body"
+            required
+            class="border-blue-700 border-2 text-black text-xl rounded-xl box-border md:w-screen py-16 placeholder:italic placeholder:text-slate-400"
+            placeholder="Write your masterpiece here..."
+          ></textarea>
+
+          <button
+            id="button"
+            class="flex mx-auto md:mt-8 rounded-full bg-black px-8 py-2 text-xl text-teal-500"
+          >
+            SHARE
+          </button>
+        </div>
+      </form>
     </div>
-    
+
     <%- include("./partials/footer.ejs") %>
-
-</body>
-
+  </body>
 </html>
