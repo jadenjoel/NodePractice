@@ -6,7 +6,7 @@ const requireAuth = async (req, res, next) => {
 
   // detect jwt then verify
   if (token) {
-    jwt.verify(token, process.env.JWTSECRET, (err, decodedToken) => {
+    jwt.verify(token, `${process.env.JWTSECRET}`, (err, decodedToken) => {
       if (err) {
         console.log(err.message);
         res.redirect("/user/login");
@@ -25,7 +25,7 @@ const checkUser = (req, res, next) => {
   const token = req.cookies.jwt;
 
   if (token) {
-    jwt.verify(token, process.env.JWTSECRET, async (err, decodedToken) => {
+    jwt.verify(token, `${process.env.JWTSECRET}`, async (err, decodedToken) => {
       if (err) {
         console.log(err.message);
 
