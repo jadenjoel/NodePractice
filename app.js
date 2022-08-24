@@ -44,7 +44,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cookieParser());
-app.user(requireAuth());
+app.use(requireAuth());
 
 // routes
 app.get("*", checkUser);
